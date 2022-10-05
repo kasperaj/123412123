@@ -15,9 +15,17 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     ''
     """
     ciphertext = ""
-    # PUT YOUR CODE HERE
+    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    plaintext_high = plaintext.upper()
+    for letter in plaintext_high:
+        position = alphabet.find(letter)
+        new_position = position + shift
+        if letter in alphabet:
+            ciphertext = ciphertext + alphabet[new_position]
+        else:
+            ciphertext = ciphertext + letter
     return ciphertext
-
+print(encrypt_caesar(input("Слово для шифровки "), int(input("Введите ключ "))))
 
 def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     """
@@ -33,8 +41,17 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     ''
     """
     plaintext = ""
-    # PUT YOUR CODE HERE
+    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    ciphertext_high = ciphertext.upper()
+    for letter in ciphertext_high:
+        position = alphabet.find(letter)
+        new_position = position - shift
+        if letter in alphabet:
+            plaintext = plaintext + alphabet[new_position]
+        else:
+            plaintext = plaintext + letter
     return plaintext
+print(decrypt_caesar(input("Слово для шифровки "), int(input("Введите ключ "))))
 
 
 def caesar_breaker_brute_force(ciphertext: str, dictionary: tp.Set[str]) -> int:
