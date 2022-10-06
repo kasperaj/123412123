@@ -25,7 +25,7 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
         else:
             ciphertext = ciphertext + letter
     return ciphertext
-print(encrypt_caesar(input("Слово для шифровки "), int(input("Введите ключ "))))
+print(encrypt_caesar(input("Слово для шифровки "), 3))
 
 def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     """
@@ -51,7 +51,7 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
         else:
             plaintext = plaintext + letter
     return plaintext
-print(decrypt_caesar(input("Слово для шифровки "), int(input("Введите ключ "))))
+print(decrypt_caesar(input("Слово для шифровки "), 3))
 
 
 def caesar_breaker_brute_force(ciphertext: str, dictionary: tp.Set[str]) -> int:
